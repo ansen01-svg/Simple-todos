@@ -1,9 +1,10 @@
+import TodosForm from '../reusable_components/todo_form';
 import { Wrapper } from '../styled_components';
 
 
 const SearchComponent = () => {
     return (
-        <Wrapper height='200px'>
+        <Wrapper height='200px' borderBottom='0.1px solid gray'>
             <InputHolder />
         </Wrapper>
     )
@@ -11,15 +12,12 @@ const SearchComponent = () => {
 
 const InputHolder = () => {
     return (
-        <Wrapper borderBottom='0.1px solid gray'>
-            <Input />
+        <Wrapper 
+            height='70px'
+            width='70%'
+        >
+            <TodosForm />
         </Wrapper>
-    )
-}
-
-const Input = () => {
-    return (
-        <input></input>
     )
 }
 

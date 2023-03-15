@@ -33,6 +33,23 @@ const theme = createTheme({
         },
       },
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root': {  // - The Input-root, inside the TextField-root
+            '& fieldset': {            // - The <fieldset> inside the Input-root
+                borderColor: 'rgb(54, 51, 51)',   // - Set the Input border
+            },
+            // '&:hover fieldset': {
+            //   borderColor: 'pink',
+            // },
+            // '&.Mui-focused fieldset': { // - Set the Input border when parent is focused 
+            //   borderColor: 'green',
+            // },
+          }
+        }
+      }
+    }
   },
 });
 
