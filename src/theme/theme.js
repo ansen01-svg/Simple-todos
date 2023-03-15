@@ -9,27 +9,32 @@ const theme = createTheme({
   },
   components: {
     MuiCssBaseline: {
-      styleOverrides: `
-        @font-face {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
-          font-style: normal;
-          font-display: swap;
-          font-weight: 400;
-      `,
+      styleOverrides:
+        {
+          body: {
+            backgroundColor: '#0d1117'
+          },
+          FontFace: {
+            fontFamily: `system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif`,
+            fontStyle: 'normal',
+            fontDisplay: 'swap',
+            fontWeight: 400,
+          },
+        }
     },
     MuiTypography: {
       defaultProps: {
         variantMapping: {
           h4: 'h1',
-          // h2: 'h2',
+          h5: 'h2',
           // h3: 'h2',
           // h4: 'h2',
           // h5: 'h2',
           // h6: 'h2',
-          // subtitle1: 'h2',
+          // subtitle1: 'p',
           // subtitle2: 'h2',
-          // body1: 'span',
-          // body2: 'span',
+          body1: 'p',
+          body2: 'p',
         },
       },
     },
@@ -40,9 +45,9 @@ const theme = createTheme({
             '& fieldset': {            // - The <fieldset> inside the Input-root
                 borderColor: 'rgb(54, 51, 51)',   // - Set the Input border
             },
-            // '&:hover fieldset': {
-            //   borderColor: 'pink',
-            // },
+            '&:hover fieldset': {
+              borderColor: '#1976d2',
+            },
             // '&.Mui-focused fieldset': { // - Set the Input border when parent is focused 
             //   borderColor: 'green',
             // },

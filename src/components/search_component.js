@@ -4,7 +4,7 @@ import { Wrapper } from '../styled_components';
 
 const SearchComponent = () => {
     return (
-        <Wrapper height='200px' borderBottom='0.1px solid gray'>
+        <Wrapper height='200px'>
             <InputHolder />
         </Wrapper>
     )

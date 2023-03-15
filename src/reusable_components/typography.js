@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material';
 
 
-const TypoGraphy = ({ variant, title }) => {
+const TypoGraphy = ({ variant, title, textColor }) => {
     return (
-        <Typography variant={variant}>
+        <Typography variant={variant} sx={{color: textColor}}>
             { title }
         </Typography>
     )

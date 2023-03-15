@@ -1,14 +1,17 @@
-import { Wrapper } from '../styled_components';
+import { FlexibleHeightWrapper } from '../styled_components';
 import CompletedTodos from './completed_todos';
 import PendingTodos from './pending_todos';
 
 
 const TodosComponent = () => {
     return (
-        <Wrapper height='529px' borderBottom='1px solid red'>
+        <FlexibleHeightWrapper 
+            // height='529px' 
+            flexDirection='column'
+        >
             <PendingTodos />
             <CompletedTodos />
-        </Wrapper>
+        </FlexibleHeightWrapper>
     )
 }
 
