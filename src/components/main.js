@@ -9,7 +9,6 @@ const Main = () => {
         <MainWrapper
             width='100vw'
             height='100vh'
-            backgroundColor='var(--background_color)'
         >
             <Nav />
             <SearchComponent />

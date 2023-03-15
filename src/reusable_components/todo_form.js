@@ -1,6 +1,6 @@
 import { Form } from "../styled_components";
-import AddButton from "./add_button";
 import TodosInput from "./add_input";
+import AddButton from "./contained_button";
 
 
 const TodosForm = () => {
