@@ -1,12 +1,12 @@
 import { Button } from "@mui/material";
 
 
-const AddButton = () => {
+const AddButton = ({ width, height, color, title }) => {
     return  <Button 
                 variant="contained"
-                sx={{ width: '15%', height: '56px' }}
+                sx={{ width: width, height: height, color: color }}
             >
-                Add
+                { title }
             </Button>
 }
 

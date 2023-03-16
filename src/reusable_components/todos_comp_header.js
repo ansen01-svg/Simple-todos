@@ -1,14 +1,13 @@
-import TypoGraphy from '../reusable_components/typography';
 import { Wrapper } from '../styled_components';
 
 
-const TodosComponentHeader = ({ title }) => {
+const TodosComponentHeader = ({ children }) => {
     return (
         <Wrapper
             height='56px'
-            justifyContent='flex-start'
+            justifyContent='space-between'
         >
-            <TypoGraphy variant='h5' title={title} />
+            { children }
         </Wrapper>
     )
 }
