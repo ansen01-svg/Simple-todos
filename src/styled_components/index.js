@@ -39,3 +39,12 @@ export const Form = styled.form`
     gap: ${props => props.gap || '20px'};
     padding: ${props => props.padding || '0 0'};
 `
+
+export const InputWrapper = styled.input`
+    width: ${props => props.width};
+    height: ${props => props.height};
+    outline: none;
+    border: ${props => props.border || 'none'};
+    color: white;
+    background: ${props => props.backgroundColor|| 'none'};
+`

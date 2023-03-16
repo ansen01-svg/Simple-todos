@@ -5,8 +5,7 @@ import PendingTodos from './pending_todos';
 
 const TodosComponent = () => {
     return (
-        <FlexibleHeightWrapper 
-            // height='529px' 
+        <FlexibleHeightWrapper
             flexDirection='column'
         >
             <PendingTodos />

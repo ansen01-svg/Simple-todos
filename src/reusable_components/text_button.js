@@ -1,10 +1,12 @@
 import { Button } from "@mui/material";
 
 
-const TextButton = ({ width, height, color, title }) => {
+const TextButton = ({ color, title, icon }) => {
     return  <Button 
                 variant="text"
-                sx={{ width: width, height: height, color: color }}
+                size="small"
+                sx={{ color: color, padding: '5px 20px' }}
+                startIcon={icon}
             >
                 { title }
             </Button>

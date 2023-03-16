@@ -2,7 +2,7 @@ export const tasks = [
     {
         id: 1,
         task: 'Walk the dog',
-        completed: false,
+        completed: true,
     },
     {
         id: 2,

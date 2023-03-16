@@ -7,7 +7,11 @@ const TodosForm = () => {
     return (
         <Form>
             <TodosInput />
-            <AddButton />
+            <AddButton 
+                width='15%' 
+                height='56px' 
+                title='Add' 
+            />
         </Form>
     )
 }
