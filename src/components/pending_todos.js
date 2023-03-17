@@ -7,7 +7,7 @@ import TypoGraphy from '../reusable_components/typography';
 import { Wrapper } from '../styled_components';
 
 
-const PendingTodos = () => {
+const PendingTodos = ({ tasks }) => {
     return (
         <Wrapper 
             width='70%'
@@ -16,7 +16,10 @@ const PendingTodos = () => {
             gap='20px'
         >
             <TodosHeader />
-            <TodosHolder/>
+            <TodosHolder 
+                tasks={tasks} 
+                status='pending' 
+            />
         </Wrapper>
     )
 }

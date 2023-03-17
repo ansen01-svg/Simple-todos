@@ -3,7 +3,8 @@ import TodosHolder from '../reusable_components/todos_holder';
 import TypoGraphy from '../reusable_components/typography';
 import { Wrapper } from '../styled_components';
 
-const CompletedTodos = () => {
+
+const CompletedTodos = ({ tasks }) => {
     return (
         <Wrapper
             width='70%'
@@ -12,7 +13,7 @@ const CompletedTodos = () => {
             gap='20px'
         >
             <TodosHeader />
-            <TodosHolder />
+            <TodosHolder  tasks={tasks} />
         </Wrapper>
     )
 }

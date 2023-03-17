@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 const TaskSlice = createSlice({
     name: 'Tasks',
     initialState: {
-        tasks: []
+        tasks: [],
     },
     reducers: {
         addTask: (state, { payload }) => {
@@ -14,25 +14,38 @@ const TaskSlice = createSlice({
                 task: payload,
                 completed: false
             }
-            state.tasks = [...state.tasks, newTask]
+
+            state.tasks = [...state.tasks, newTask];
+        },
+        editStatus: (state, { payload }) => {
+            const newTasks = state.tasks.map(task => {
+                if(task.id !== payload.id) return task;
+
+                if(!task.completed) {
+                    return { ...task, completed: true };
+                } else {
+                    return { ...task, completed: false };
+                }
+            });
+
+            state.tasks = newTasks;
         },
         editTask: (state, { payload }) => {
             let newTasks = state.tasks.map(task => {
-                if (task.id === payload.id) {
-                    task.task = payload.task
-                }
-                return task;
+                if (task.id !== payload.id) return task;
+
+                return { ...task, task: payload.task };
             });
 
-            state.tasks = newTasks
+            state.tasks = newTasks;
         },
         deleteTask: (state, { payload }) => {
             let newTasks = state.tasks.filter(task => task.id !== payload)
 
-            state.tasks = newTasks
+            state.tasks = newTasks;
         },
         clearAllTasks: (state) => {
-            state.tasks = []
+            state.tasks = [];
         }
     }
 });

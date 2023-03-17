@@ -2,7 +2,7 @@ export const tasks = [
     {
         id: 1,
         task: 'Walk the dog',
-        completed: true,
+        completed: false,
     },
     {
         id: 2,
@@ -17,6 +17,6 @@ export const tasks = [
     {
         id: 4,
         task: 'Read a book or watch some videos',
-        completed: false,
+        completed: true,
     },
 ]

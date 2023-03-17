@@ -1,19 +1,30 @@
-import { Checkbox } from '@mui/material';
 import { red } from '@mui/material/colors';
 import TextButton from '../reusable_components/text_button';
 import TypoGraphy from '../reusable_components/typography';
 import { FlexibleHeightWrapper, Wrapper } from '../styled_components';
-import { tasks } from '../utils/tasks';
+import CheckBox from './checkbox';
+import MessageHolder from './message_holder';
 
 
-const TodosHolder = () => {
+const TodosHolder = ({ tasks, status }) => {
+
+    if(tasks.length <= 0) {
+        return (
+            <FlexibleHeightWrapper>
+                <MessageHolder 
+                    message={status === 'pending' ? 'No pending tasks.' : 'No task has been completed.'} 
+                />
+            </FlexibleHeightWrapper>
+        )
+    }
+
     return (
         <FlexibleHeightWrapper
             backgroundColor='var(--background_color2)'
             flexDirection='column'
         >
             {
-                tasks.length > 0 && tasks.map((task) => <Task key={task.id} task={task} />)
+                tasks.map((task) => <Task key={task.id} task={task} />)
             }
         </FlexibleHeightWrapper>
     )
@@ -25,27 +36,21 @@ const Task = ({ task }) => {
             height='70px'
             borderBottom='0.1px solid var(--border_color)'
         >
-            <CheckboxHolder status={task.completed} />
+            <CheckboxHolder task={task} />
             <TitleHolder title={task.task} />
             <ButtonsHolder />
         </Wrapper>
     )
 }
 
-const CheckboxHolder = ({ status }) => {
+const CheckboxHolder = ({ task }) => {
     return (
         <Wrapper
             width='5%'
         >
-            <Checkbox 
-                size='extraSmall'
-                sx={{
-                    color: '#1976d2',
-                    '&.Mui-checked': {
-                      color: '#1976d2',
-                    },
-                }}
-                // checked={status ? true : false}
+            <CheckBox
+                color='#1976d2'
+                checkedFactor={task}
             />
         </Wrapper>
     )
