@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import TypoGraphy from '../reusable_components/typography';
 import { Wrapper } from '../styled_components';
 
 
-const MessageHolder = ({ message }) => {
+const MessageHolder = memo(({ message }) => {
     return (
         <Wrapper height='56px'>
             <TypoGraphy 
@@ -12,7 +13,7 @@ const MessageHolder = ({ message }) => {
             />
         </Wrapper>
     )
-}
+});
 
 
 export default MessageHolder;

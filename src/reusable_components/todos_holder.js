@@ -10,6 +10,7 @@ import Input from './normal_input';
 
 
 const TodosHolder = ({ tasks, status }) => {
+    console.log('rendered')
 
     if(tasks.length <= 0) {
         return (
@@ -83,7 +84,7 @@ const TitleHolder = ({ task }) => {
 
     return (
         <Wrapper
-            width='65%'
+            width='75%'
             justifyContent='flex-start'
             padding='0 0 0 20px'
         >
@@ -107,7 +108,7 @@ const ButtonsHolder = ({ task }) => {
 
     return (
         <Wrapper
-            width='30%'
+            width='20%'
             gap='10px'
         >
             <TextButton 
