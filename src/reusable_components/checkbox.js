@@ -1,7 +1,7 @@
 import { Checkbox } from '@mui/material';
 
 
-const CheckBox = ({ color, checkedFactor }) => {
+const CheckBox = ({ color, checkedFactor, handleChange }) => {
     return (
         <Checkbox 
             size='extraSmall'
@@ -11,7 +11,7 @@ const CheckBox = ({ color, checkedFactor }) => {
                   color: color,
                 },
             }}
-            checked={checkedFactor.completed ? true : false}
+            onChange={() => handleChange(checkedFactor.id)}
         />
     )
 }

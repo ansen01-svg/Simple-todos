@@ -1,5 +1,7 @@
 import ClearIcon from '@mui/icons-material/Clear';
 import { red } from '@mui/material/colors';
+import { useDispatch } from 'react-redux';
+import { clearAllTasks } from '../redux/task_slice';
 import TextButton from '../reusable_components/text_button';
 import TodosComponentHeader from '../reusable_components/todos_comp_header';
 import TodosHolder from '../reusable_components/todos_holder';
@@ -45,6 +47,11 @@ const HeaderTitleHolder = () => {
 }
 
 const ClearButtonHolder = () => {
+
+    const dispatch = useDispatch();
+
+    const clearTasks = () => dispatch(clearAllTasks());
+
     return (
         <Wrapper
             width='26%'
@@ -52,7 +59,8 @@ const ClearButtonHolder = () => {
             <TextButton 
                 icon={<ClearIcon fontSize='small' />}
                 title='Clear all' 
-                color={red[500]}              
+                color={red[500]}   
+                handleClick={clearTasks}           
             />
         </Wrapper>
     )

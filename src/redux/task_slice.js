@@ -19,7 +19,7 @@ const TaskSlice = createSlice({
         },
         editStatus: (state, { payload }) => {
             const newTasks = state.tasks.map(task => {
-                if(task.id !== payload.id) return task;
+                if(task.id !== payload) return task;
 
                 if(!task.completed) {
                     return { ...task, completed: true };
@@ -50,7 +50,7 @@ const TaskSlice = createSlice({
     }
 });
 
-export const { addTask, editTask, deleteTask, clearAllTasks } = TaskSlice.actions;
+export const { addTask, editStatus, editTask, deleteTask, clearAllTasks } = TaskSlice.actions;
 
 
 export default TaskSlice.reducer;
