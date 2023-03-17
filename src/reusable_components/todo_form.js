@@ -3,10 +3,16 @@ import TodosInput from "./add_input";
 import AddButton from "./contained_button";
 
 
-const TodosForm = () => {
+const TodosForm = ({ value, setValue, handleSubmit }) => {
     return (
-        <Form>
-            <TodosInput />
+        <Form
+            type="submit"
+            onSubmit={(e) => handleSubmit(e)}
+        >
+            <TodosInput 
+                value={value}
+                setValue={setValue}
+            />
             <AddButton 
                 width='15%' 
                 height='56px' 
