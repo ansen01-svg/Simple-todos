@@ -3,7 +3,7 @@ import TodosInput from "./add_input";
 import AddButton from "./contained_button";
 
 
-const TodosForm = ({ value, setValue, handleSubmit }) => {
+const TodosForm = ({ value, setValue, handleChange, handleSubmit }) => {
     return (
         <Form
             type="submit"
@@ -12,6 +12,7 @@ const TodosForm = ({ value, setValue, handleSubmit }) => {
             <TodosInput 
                 value={value}
                 setValue={setValue}
+                handleChange={handleChange}
             />
             <AddButton 
                 width='15%' 

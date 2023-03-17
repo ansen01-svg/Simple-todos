@@ -1,11 +1,12 @@
 import { red } from '@mui/material/colors';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteTask, editStatus } from '../redux/task_slice';
+import { deleteTask, editStatus, editTask } from '../redux/task_slice';
 import TextButton from '../reusable_components/text_button';
-import TypoGraphy from '../reusable_components/typography';
 import { FlexibleHeightWrapper, Wrapper } from '../styled_components';
 import CheckBox from './checkbox';
 import MessageHolder from './message_holder';
+import Input from './normal_input';
 
 
 const TodosHolder = ({ tasks, status }) => {
@@ -39,7 +40,7 @@ const Task = ({ task }) => {
             borderBottom='0.1px solid var(--border_color)'
         >
             <CheckboxHolder task={task} />
-            <TitleHolder title={task.task} />
+            <TitleHolder task={task} />
             <ButtonsHolder task={task} />
         </Wrapper>
     )
@@ -64,15 +65,36 @@ const CheckboxHolder = ({ task }) => {
     )
 }
 
-const TitleHolder = ({ title }) => {
+const TitleHolder = ({ task }) => {
+
+    const [title, setTitle] = useState(task.task);
+
+    const dispatch = useDispatch();
+
+    const handleChange = (e) => {
+        let newTitle = e.target.value;
+        setTitle(newTitle);
+
+        setTimeout(() => {
+            const editedTask = { id: task.id, task: newTitle }
+            dispatch(editTask(editedTask));
+        }, 5000);
+    };
+
     return (
         <Wrapper
             width='65%'
             justifyContent='flex-start'
             padding='0 0 0 20px'
         >
-            <TypoGraphy variant='body1' title={title} textColor='#B2BAC2' />
-            {/* <Input /> */}
+            <Input 
+                type='text'
+                value={title}
+                textDecoration={task.completed ? 'line-through' : 'none'}
+                textColor={task.completed ? '#4d5258' : '#B2BAC2'}
+                handleChange={handleChange}
+                disabled={task.completed ? true : false}
+            />
         </Wrapper>
     )
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../redux/task_slice';
-import TodosForm from '../reusable_components/todo_form';
+import TodosForm from '../reusable_components/add_task_form';
 import { Wrapper } from '../styled_components';
 
 
@@ -19,6 +19,8 @@ const InputHolder = () => {
 
     let dispatch = useDispatch();
 
+    const handleChange = (e) => setValue(e.target.value);
+
     let handleSubmit = (e) => {
         e.preventDefault();
 
@@ -35,6 +37,7 @@ const InputHolder = () => {
             <TodosForm
                 value={value}
                 setValue={setValue}
+                handleChange={handleChange}
                 handleSubmit={handleSubmit}
             />
         </Wrapper>
