@@ -48,7 +48,6 @@ export const InputWrapper = styled.input`
     color: ${props => props.textColor || 'var(--text_color2)'};
     font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
     font-weight: 500;
-    // font-size: 0.875rem;
     font-size: 16px;
     text-decoration:${props => props.textDecoration || 'none'};
     background: ${props => props.backgroundColor|| 'none'};

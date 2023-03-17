@@ -1,5 +1,6 @@
 import ClearIcon from '@mui/icons-material/Clear';
 import { red } from '@mui/material/colors';
+import { memo, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { clearAllTasks } from '../redux/task_slice';
 import TextButton from '../reusable_components/text_button';
@@ -26,14 +27,18 @@ const PendingTodos = ({ tasks }) => {
     )
 }
 
-const TodosHeader = () => {
+const TodosHeader = memo(() => {
+
+    const TitleHolder = useCallback(() => <HeaderTitleHolder />, [])
+    const ButtonHolder = useCallback(() => <ClearButtonHolder />, [])
+
     return (
         <TodosComponentHeader>
-            <HeaderTitleHolder />
-            <ClearButtonHolder />
+            <TitleHolder />
+            <ButtonHolder />
         </TodosComponentHeader>
     )
-}
+});
 
 const HeaderTitleHolder = () => {
     return (
@@ -54,7 +59,7 @@ const ClearButtonHolder = () => {
 
     return (
         <Wrapper
-            width='26%'
+            width='22%'
         >
             <TextButton 
                 icon={<ClearIcon fontSize='small' />}
