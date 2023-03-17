@@ -1,4 +1,6 @@
 import { red } from '@mui/material/colors';
+import { useDispatch } from 'react-redux';
+import { deleteTask, editStatus } from '../redux/task_slice';
 import TextButton from '../reusable_components/text_button';
 import TypoGraphy from '../reusable_components/typography';
 import { FlexibleHeightWrapper, Wrapper } from '../styled_components';
@@ -38,12 +40,17 @@ const Task = ({ task }) => {
         >
             <CheckboxHolder task={task} />
             <TitleHolder title={task.task} />
-            <ButtonsHolder />
+            <ButtonsHolder task={task} />
         </Wrapper>
     )
 }
 
 const CheckboxHolder = ({ task }) => {
+
+    const dispatch = useDispatch();
+
+    const handleChange = (id) => dispatch(editStatus(id));
+
     return (
         <Wrapper
             width='5%'
@@ -51,6 +58,7 @@ const CheckboxHolder = ({ task }) => {
             <CheckBox
                 color='#1976d2'
                 checkedFactor={task}
+                handleChange={handleChange}
             />
         </Wrapper>
     )
@@ -69,14 +77,22 @@ const TitleHolder = ({ title }) => {
     )
 }
 
-const ButtonsHolder = () => {
+const ButtonsHolder = ({ task }) => {
+
+    const dispatch = useDispatch();
+
+    const deleteSingleTask = () => dispatch(deleteTask(task.id));
+
     return (
         <Wrapper
             width='30%'
             gap='10px'
         >
-            <TextButton title='Edit' />
-            <TextButton title='Delete' color={red[500]} />
+            <TextButton 
+                title='Delete' 
+                color={red[500]} 
+                handleClick={deleteSingleTask}
+            />
         </Wrapper>
     )
 }
