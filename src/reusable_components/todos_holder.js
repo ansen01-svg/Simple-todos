@@ -10,7 +10,6 @@ import Input from './normal_input';
 
 
 const TodosHolder = ({ tasks, status }) => {
-    console.log('rendered')
 
     if(tasks.length <= 0) {
         return (

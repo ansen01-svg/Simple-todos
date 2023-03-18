@@ -1,7 +1,10 @@
 import { Checkbox } from '@mui/material';
 
 
-const CheckBox = ({ color, checkedFactor, handleChange }) => {
+const CheckBox = (props) => {
+
+    const { color, checkedFactor, handleChange } = props;
+
     return (
         <Checkbox 
             size='extraSmall'
