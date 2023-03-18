@@ -1,7 +1,10 @@
 import { InputWrapper } from '../styled_components';
 
 
-const Input = ({ type, value, placeholder, textDecoration, textColor, handleChange, disabled }) => {
+const Input = (props) => {
+
+    const { type, value, placeholder, textDecoration, textColor, handleChange, disabled } = props;
+
     return  <InputWrapper
                 width='100%'
                 type={type}

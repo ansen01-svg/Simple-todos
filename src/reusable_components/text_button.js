@@ -1,7 +1,10 @@
 import { Button } from "@mui/material";
 
 
-const TextButton = ({ color, title, icon, handleClick }) => {
+const TextButton = (props) => {
+
+    const { color, title, icon, handleClick } = props;
+
     return  <Button 
                 variant="text"
                 size="small"

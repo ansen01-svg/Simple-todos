@@ -3,7 +3,10 @@ import TodosInput from "./add_input";
 import AddButton from "./contained_button";
 
 
-const TodosForm = ({ value, setValue, handleChange, handleSubmit }) => {
+const TodosForm = (props) => {
+
+    const { value, setValue, handleChange, handleSubmit } = props;
+
     return (
         <Form
             type="submit"
